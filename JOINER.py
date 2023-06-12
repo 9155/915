@@ -175,7 +175,7 @@ def spammer():
     Write.Print(" > [Github.com/TT-Tutorials]            ░  ░        ░  ░    ░  ░ ░   \n", Colors.purple_to_blue, interval=0.000)
     Write.Print("════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════", Colors.purple_to_blue, interval=0.000)
     print(f'''{m}'''.replace('$', f'{m}${w}') + f'''
-   {b}|{Fore.RESET}{m}[{w}1{Fore.RESET}{m}]{Fore.RESET} VC Spammer  {b}|{Fore.RESET}{m}[{w}2{Fore.RESET}{m}]{Fore.RESET}{lr} EXIT{Fore.RESET}''')
+   {b}|{Fore.RESET}{m}[{w}1{Fore.RESET}{m}]{Fore.RESET} VC Spammer {b}|{Fore.RESET}{m}[{w}2{Fore.RESET}{m}]{Fore.RESET} WEBHOOK SPAMMER {b}|{Fore.RESET}{m}[{w}3{Fore.RESET}{m}]{Fore.RESET}{lr} EXIT{Fore.RESET}''')
     Write.Print("════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════", Colors.blue_to_purple, interval=0.000)
     choice = input(f'{m}[{w}>{m}]{w} Choice?: ')
 
@@ -239,17 +239,35 @@ def spammer():
 
 
 
-#   EXIT
+
+
+#   WEBHOOK SPAMMER
     if choice == '2':
+        Spinner()
+        setTitle(f"Webhook Spammer    |    ")
+        session = requests.Session()
+        webhook = input("\n[\x1b[95m>\x1b[95m\x1B[37m] Webhook URL: ")
+        message = input("[\x1b[95m>\x1b[95m\x1B[37m] Message: ")
+        username = input("[\x1b[95m>\x1b[95m\x1B[37m] Webhook Username?: ")
+
+        def gang():
+            session.post(webhook,json = {"content":message,"username":username})
+    
+            while True:
+                for i in range(15):
+                    threading.Thread(target=gang).start()
+        gang()
+
+
+#   EXIT
+    if choice == '3':
         Spinner()
         exit = True if input(f"\n[{Fore.LIGHTMAGENTA_EX}>{Fore.RESET}] Are You Sure You Want To Exit 915-Nuker? Y/N: ").lower() == "y" else spammer() or "n" == sys.exit(0)
     else:
         print(f"")
         time.sleep(0)
         return spammer()
-
-
-
+	
 
 #   AUTO DOWNLOAD DRIVERS
 if __name__ == "__main__":
